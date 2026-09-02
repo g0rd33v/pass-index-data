@@ -1,0 +1,8 @@
+# Pass Index
+
+> A catalogue of everything sold in the AI market — models, tools, agents and
+> subscriptions, with prices, sellers, leaderboard standings and funding.
+
+The full machine-readable catalogue is data/all.json (pretty, sorted) and
+data/all.ndjson (one record per line). Every price is integer micro-USD with
+its source and read-date. The live site is https://pass.io/index .
