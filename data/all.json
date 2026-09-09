@@ -362379,6 +362379,492 @@
     },
     {
       "aliases": [],
+      "attrs": {
+        "access": "api",
+        "coverage": "equities, FX, crypto, indicators",
+        "updated": "live"
+      },
+      "benchmarks": [],
+      "derived_from": null,
+      "docs": [],
+      "family": "market data",
+      "id": "ent_alpha-vantage",
+      "input_kind": "text",
+      "maker": "prov_alpha-vantage",
+      "name": "Alpha Vantage",
+      "offerings": [
+        {
+          "components": [
+            {
+              "basis": "declared",
+              "dimension": "month",
+              "micros_per_unit": 49990000,
+              "source": "https://www.alphavantage.co/premium/",
+              "taken_at": "2026-09-09"
+            }
+          ],
+          "metrics": [],
+          "provider": "Alpha Vantage",
+          "provider_id": "prov_alpha-vantage",
+          "status": "live",
+          "variant": "",
+          "way": "api"
+        }
+      ],
+      "output_kind": "text",
+      "register": "data",
+      "version": null
+    },
+    {
+      "aliases": [],
+      "attrs": {
+        "access": "download",
+        "coverage": "the open web, 15 years",
+        "pages": 300000000000,
+        "updated": "monthly"
+      },
+      "benchmarks": [],
+      "derived_from": null,
+      "docs": [],
+      "family": "web corpus",
+      "id": "ent_common-crawl",
+      "input_kind": "text",
+      "maker": "prov_common-crawl",
+      "name": "Common Crawl",
+      "offerings": [
+        {
+          "components": [
+            {
+              "basis": "declared",
+              "dimension": "gb",
+              "micros_per_unit": 0,
+              "source": "https://commoncrawl.org",
+              "taken_at": "2026-09-09"
+            }
+          ],
+          "metrics": [],
+          "provider": "Common Crawl",
+          "provider_id": "prov_common-crawl",
+          "status": "live",
+          "variant": "free",
+          "way": "api"
+        }
+      ],
+      "output_kind": "text",
+      "register": "data",
+      "version": null
+    },
+    {
+      "aliases": [
+        {
+          "alias": "Exa Contents",
+          "source": "maker-prefixed"
+        },
+        {
+          "alias": "contents",
+          "source": "prov_exa"
+        }
+      ],
+      "attrs": {
+        "tasks": [
+          "extract"
+        ]
+      },
+      "benchmarks": [],
+      "derived_from": null,
+      "docs": [
+        {
+          "field": "",
+          "kind": "description",
+          "source": "https://exa.ai/docs/llms.txt",
+          "taken_at": "2026-08-25",
+          "text": "Exa's Contents endpoint returns the full page contents, summaries and metadata for a list of URLs, extracting clean LLM-ready web content including text, highlights, links and subpage information."
+        },
+        {
+          "field": "input_kind",
+          "kind": "fact",
+          "source": "https://exa.ai/docs/llms.txt",
+          "taken_at": "2026-08-25",
+          "text": "text"
+        },
+        {
+          "field": "output_kind",
+          "kind": "fact",
+          "source": "https://exa.ai/docs/llms.txt",
+          "taken_at": "2026-08-25",
+          "text": "text"
+        }
+      ],
+      "family": "exa-contents",
+      "id": "ent_exa-contents",
+      "input_kind": "text",
+      "maker": "prov_exa",
+      "name": "Contents",
+      "offerings": [
+        {
+          "components": [
+            {
+              "basis": "declared",
+              "dimension": "page",
+              "micros_per_unit": 1000,
+              "source": "https://exa.ai/pricing",
+              "taken_at": "2026-08-25"
+            }
+          ],
+          "metrics": [],
+          "provider": "Exa",
+          "provider_id": "prov_exa",
+          "status": "live",
+          "variant": "",
+          "way": "api"
+        }
+      ],
+      "output_kind": "text",
+      "register": "data",
+      "version": "1"
+    },
+    {
+      "aliases": [],
+      "attrs": {
+        "tasks": [
+          "search",
+          "extract"
+        ]
+      },
+      "benchmarks": [],
+      "derived_from": null,
+      "docs": [
+        {
+          "field": "",
+          "kind": "description",
+          "source": "https://exa.ai/docs/llms.txt",
+          "taken_at": "2026-08-25",
+          "text": "Exa's Search endpoint lets you search the web semantically and extract contents from the results, choosing the best search method automatically. It supports filters, freshness parameters and structured output for applications and agents."
+        },
+        {
+          "field": "input_kind",
+          "kind": "fact",
+          "source": "https://exa.ai/docs/llms.txt",
+          "taken_at": "2026-08-25",
+          "text": "text"
+        },
+        {
+          "field": "output_kind",
+          "kind": "fact",
+          "source": "https://exa.ai/docs/llms.txt",
+          "taken_at": "2026-08-25",
+          "text": "text"
+        }
+      ],
+      "family": "exa-search",
+      "id": "ent_exa-search",
+      "input_kind": "text",
+      "maker": "prov_exa",
+      "name": "Exa Search",
+      "offerings": [
+        {
+          "components": [
+            {
+              "basis": "declared",
+              "dimension": "call",
+              "micros_per_unit": 7000,
+              "source": "https://exa.ai/pricing",
+              "taken_at": "2026-08-25"
+            },
+            {
+              "basis": "declared",
+              "dimension": "result",
+              "micros_per_unit": 1000,
+              "source": "https://exa.ai/pricing",
+              "taken_at": "2026-09-09"
+            }
+          ],
+          "metrics": [],
+          "provider": "Exa",
+          "provider_id": "prov_exa",
+          "status": "live",
+          "variant": "",
+          "way": "api"
+        }
+      ],
+      "output_kind": "text",
+      "register": "data",
+      "version": "1"
+    },
+    {
+      "aliases": [],
+      "attrs": {
+        "access": "api",
+        "coverage": "any page it is pointed at",
+        "updated": "live"
+      },
+      "benchmarks": [],
+      "derived_from": null,
+      "docs": [],
+      "family": "crawl",
+      "id": "ent_firecrawl",
+      "input_kind": "text",
+      "maker": "prov_firecrawl",
+      "name": "Firecrawl",
+      "offerings": [
+        {
+          "components": [
+            {
+              "basis": "declared",
+              "dimension": "month",
+              "micros_per_unit": 83000000,
+              "source": "https://www.firecrawl.dev/pricing",
+              "taken_at": "2026-09-09"
+            }
+          ],
+          "metrics": [],
+          "provider": "Firecrawl",
+          "provider_id": "prov_firecrawl",
+          "status": "live",
+          "variant": "",
+          "way": "api"
+        }
+      ],
+      "output_kind": "text",
+      "register": "data",
+      "version": null
+    },
+    {
+      "aliases": [],
+      "attrs": {
+        "access": "api",
+        "coverage": "US equities, up to 20+ years of history",
+        "updated": "live"
+      },
+      "benchmarks": [],
+      "derived_from": null,
+      "docs": [],
+      "family": "market data",
+      "id": "ent_massive-stocks",
+      "input_kind": "text",
+      "maker": "prov_massive",
+      "name": "Massive Stocks",
+      "offerings": [
+        {
+          "components": [
+            {
+              "basis": "declared",
+              "dimension": "month",
+              "micros_per_unit": 29000000,
+              "source": "https://massive.com/pricing",
+              "taken_at": "2026-09-09"
+            }
+          ],
+          "metrics": [],
+          "provider": "Massive",
+          "provider_id": "prov_massive",
+          "status": "live",
+          "variant": "",
+          "way": "api"
+        }
+      ],
+      "output_kind": "text",
+      "register": "data",
+      "version": null
+    },
+    {
+      "aliases": [
+        {
+          "alias": "Jina Reader API",
+          "source": "maker-prefixed"
+        }
+      ],
+      "attrs": {},
+      "benchmarks": [],
+      "derived_from": null,
+      "docs": [
+        {
+          "field": "",
+          "kind": "description",
+          "source": "https://jina.ai/reader/",
+          "taken_at": "2026-08-25",
+          "text": "The Jina Reader API (r.jina.ai) converts a URL into LLM-friendly text: it fetches the page server-side, strips navigation, ads and other boilerplate, and returns clean markdown with title and metadata. It handles PDFs and webpages natively, captions images with a vision-language model, and offers several rendering engines plus cookie-based access to login-protected content."
+        },
+        {
+          "field": "input_kind",
+          "kind": "fact",
+          "source": "https://jina.ai/reader/",
+          "taken_at": "2026-08-25",
+          "text": "text"
+        },
+        {
+          "field": "output_kind",
+          "kind": "fact",
+          "source": "https://jina.ai/reader/",
+          "taken_at": "2026-08-25",
+          "text": "text"
+        }
+      ],
+      "family": "jina-reader",
+      "id": "ent_jina-reader",
+      "input_kind": "text",
+      "maker": "prov_jina",
+      "name": "Reader API",
+      "offerings": [
+        {
+          "components": [
+            {
+              "basis": "declared",
+              "dimension": "mtok_out",
+              "micros_per_unit": 50000,
+              "source": "https://jina.ai/api-dashboard/pricing",
+              "taken_at": "2026-08-25"
+            }
+          ],
+          "metrics": [],
+          "provider": "Jina AI",
+          "provider_id": "prov_jina",
+          "status": "live",
+          "variant": "",
+          "way": "api"
+        }
+      ],
+      "output_kind": "text",
+      "register": "data",
+      "version": "1"
+    },
+    {
+      "aliases": [],
+      "attrs": {
+        "access": "api",
+        "coverage": "Google's own results",
+        "updated": "live"
+      },
+      "benchmarks": [],
+      "derived_from": null,
+      "docs": [],
+      "family": "web search",
+      "id": "ent_serper",
+      "input_kind": "text",
+      "maker": "prov_serper",
+      "name": "Serper",
+      "offerings": [
+        {
+          "components": [
+            {
+              "basis": "declared",
+              "dimension": "call",
+              "micros_per_unit": 0,
+              "source": "https://serper.dev",
+              "taken_at": "2026-09-09"
+            }
+          ],
+          "metrics": [],
+          "provider": "Serper",
+          "provider_id": "prov_serper",
+          "status": "live",
+          "variant": "free",
+          "way": "api"
+        }
+      ],
+      "output_kind": "text",
+      "register": "data",
+      "version": null
+    },
+    {
+      "aliases": [],
+      "attrs": {},
+      "benchmarks": [],
+      "derived_from": null,
+      "docs": [
+        {
+          "field": "",
+          "kind": "description",
+          "source": "https://docs.tavily.com/documentation/api-reference/endpoint/search",
+          "taken_at": "2026-08-25",
+          "text": "Tavily Search is a search engine built for LLM agents: the /search endpoint takes a query and returns relevance-ranked web results with title, URL and content snippets, plus an optional LLM-generated answer, with filtering by domain, country, language and date."
+        },
+        {
+          "field": "input_kind",
+          "kind": "fact",
+          "source": "https://docs.tavily.com/documentation/api-reference/endpoint/search",
+          "taken_at": "2026-08-25",
+          "text": "text"
+        },
+        {
+          "field": "output_kind",
+          "kind": "fact",
+          "source": "https://docs.tavily.com/documentation/api-reference/endpoint/search",
+          "taken_at": "2026-08-25",
+          "text": "text"
+        }
+      ],
+      "family": "tavily-search",
+      "id": "ent_tavily-search",
+      "input_kind": "text",
+      "maker": "prov_tavily",
+      "name": "Tavily Search",
+      "offerings": [
+        {
+          "components": [
+            {
+              "basis": "declared",
+              "dimension": "call",
+              "micros_per_unit": 8000,
+              "source": "https://tavily.com/pricing",
+              "taken_at": "2026-09-09"
+            }
+          ],
+          "metrics": [],
+          "provider": "Tavily",
+          "provider_id": "prov_tavily",
+          "status": "live",
+          "variant": "",
+          "way": "api"
+        },
+        {
+          "components": [
+            {
+              "basis": "declared",
+              "dimension": "call",
+              "micros_per_unit": 16000,
+              "source": "https://www.tavily.com/pricing",
+              "taken_at": "2026-08-25"
+            }
+          ],
+          "metrics": [],
+          "provider": "Tavily",
+          "provider_id": "prov_tavily",
+          "status": "stale",
+          "variant": "advanced",
+          "way": "api"
+        },
+        {
+          "components": [
+            {
+              "basis": "declared",
+              "dimension": "mtok_in",
+              "micros_per_unit": 0,
+              "source": "https://docs.tavily.com/documentation/api-credits",
+              "taken_at": "2026-09-09"
+            },
+            {
+              "basis": "declared",
+              "dimension": "mtok_out",
+              "micros_per_unit": 0,
+              "source": "https://docs.tavily.com/documentation/api-credits",
+              "taken_at": "2026-09-09"
+            }
+          ],
+          "metrics": [],
+          "provider": "Tavily",
+          "provider_id": "prov_tavily",
+          "status": "live",
+          "variant": "free",
+          "way": "api"
+        }
+      ],
+      "output_kind": "text",
+      "register": "data",
+      "version": "1"
+    },
+    {
+      "aliases": [],
       "attrs": {},
       "benchmarks": [],
       "derived_from": null,
@@ -364794,75 +365280,6 @@
       "version": "1"
     },
     {
-      "aliases": [
-        {
-          "alias": "Exa Contents",
-          "source": "maker-prefixed"
-        },
-        {
-          "alias": "contents",
-          "source": "prov_exa"
-        }
-      ],
-      "attrs": {
-        "tasks": [
-          "extract"
-        ]
-      },
-      "benchmarks": [],
-      "derived_from": null,
-      "docs": [
-        {
-          "field": "",
-          "kind": "description",
-          "source": "https://exa.ai/docs/llms.txt",
-          "taken_at": "2026-08-25",
-          "text": "Exa's Contents endpoint returns the full page contents, summaries and metadata for a list of URLs, extracting clean LLM-ready web content including text, highlights, links and subpage information."
-        },
-        {
-          "field": "input_kind",
-          "kind": "fact",
-          "source": "https://exa.ai/docs/llms.txt",
-          "taken_at": "2026-08-25",
-          "text": "text"
-        },
-        {
-          "field": "output_kind",
-          "kind": "fact",
-          "source": "https://exa.ai/docs/llms.txt",
-          "taken_at": "2026-08-25",
-          "text": "text"
-        }
-      ],
-      "family": "exa-contents",
-      "id": "ent_exa-contents",
-      "input_kind": "text",
-      "maker": "prov_exa",
-      "name": "Contents",
-      "offerings": [
-        {
-          "components": [
-            {
-              "basis": "declared",
-              "dimension": "page",
-              "micros_per_unit": 1000,
-              "source": "https://exa.ai/pricing",
-              "taken_at": "2026-08-25"
-            }
-          ],
-          "metrics": [],
-          "provider": "Exa",
-          "provider_id": "prov_exa",
-          "status": "live",
-          "variant": "",
-          "way": "api"
-        }
-      ],
-      "output_kind": "text",
-      "register": "tool",
-      "version": "1"
-    },
-    {
       "aliases": [],
       "attrs": {},
       "benchmarks": [],
@@ -365926,67 +366343,6 @@
       "output_kind": "text",
       "register": "tool",
       "version": ""
-    },
-    {
-      "aliases": [],
-      "attrs": {
-        "tasks": [
-          "search",
-          "extract"
-        ]
-      },
-      "benchmarks": [],
-      "derived_from": null,
-      "docs": [
-        {
-          "field": "",
-          "kind": "description",
-          "source": "https://exa.ai/docs/llms.txt",
-          "taken_at": "2026-08-25",
-          "text": "Exa's Search endpoint lets you search the web semantically and extract contents from the results, choosing the best search method automatically. It supports filters, freshness parameters and structured output for applications and agents."
-        },
-        {
-          "field": "input_kind",
-          "kind": "fact",
-          "source": "https://exa.ai/docs/llms.txt",
-          "taken_at": "2026-08-25",
-          "text": "text"
-        },
-        {
-          "field": "output_kind",
-          "kind": "fact",
-          "source": "https://exa.ai/docs/llms.txt",
-          "taken_at": "2026-08-25",
-          "text": "text"
-        }
-      ],
-      "family": "exa-search",
-      "id": "ent_exa-search",
-      "input_kind": "text",
-      "maker": "prov_exa",
-      "name": "Exa Search",
-      "offerings": [
-        {
-          "components": [
-            {
-              "basis": "declared",
-              "dimension": "call",
-              "micros_per_unit": 7000,
-              "source": "https://exa.ai/pricing",
-              "taken_at": "2026-08-25"
-            }
-          ],
-          "metrics": [],
-          "provider": "Exa",
-          "provider_id": "prov_exa",
-          "status": "live",
-          "variant": "",
-          "way": "api"
-        }
-      ],
-      "output_kind": "text",
-      "register": "tool",
-      "version": "1"
     },
     {
       "aliases": [],
@@ -370591,67 +370947,6 @@
       "version": "1"
     },
     {
-      "aliases": [
-        {
-          "alias": "Jina Reader API",
-          "source": "maker-prefixed"
-        }
-      ],
-      "attrs": {},
-      "benchmarks": [],
-      "derived_from": null,
-      "docs": [
-        {
-          "field": "",
-          "kind": "description",
-          "source": "https://jina.ai/reader/",
-          "taken_at": "2026-08-25",
-          "text": "The Jina Reader API (r.jina.ai) converts a URL into LLM-friendly text: it fetches the page server-side, strips navigation, ads and other boilerplate, and returns clean markdown with title and metadata. It handles PDFs and webpages natively, captions images with a vision-language model, and offers several rendering engines plus cookie-based access to login-protected content."
-        },
-        {
-          "field": "input_kind",
-          "kind": "fact",
-          "source": "https://jina.ai/reader/",
-          "taken_at": "2026-08-25",
-          "text": "text"
-        },
-        {
-          "field": "output_kind",
-          "kind": "fact",
-          "source": "https://jina.ai/reader/",
-          "taken_at": "2026-08-25",
-          "text": "text"
-        }
-      ],
-      "family": "jina-reader",
-      "id": "ent_jina-reader",
-      "input_kind": "text",
-      "maker": "prov_jina",
-      "name": "Reader API",
-      "offerings": [
-        {
-          "components": [
-            {
-              "basis": "declared",
-              "dimension": "mtok_out",
-              "micros_per_unit": 50000,
-              "source": "https://jina.ai/api-dashboard/pricing",
-              "taken_at": "2026-08-25"
-            }
-          ],
-          "metrics": [],
-          "provider": "Jina AI",
-          "provider_id": "prov_jina",
-          "status": "live",
-          "variant": "",
-          "way": "api"
-        }
-      ],
-      "output_kind": "text",
-      "register": "tool",
-      "version": "1"
-    },
-    {
       "aliases": [],
       "attrs": {
         "tasks": [
@@ -372489,103 +372784,6 @@
           "provider_id": "prov_tavily",
           "status": "stale",
           "variant": "",
-          "way": "api"
-        },
-        {
-          "components": [
-            {
-              "basis": "declared",
-              "dimension": "mtok_in",
-              "micros_per_unit": 0,
-              "source": "https://docs.tavily.com/documentation/api-credits",
-              "taken_at": "2026-09-09"
-            },
-            {
-              "basis": "declared",
-              "dimension": "mtok_out",
-              "micros_per_unit": 0,
-              "source": "https://docs.tavily.com/documentation/api-credits",
-              "taken_at": "2026-09-09"
-            }
-          ],
-          "metrics": [],
-          "provider": "Tavily",
-          "provider_id": "prov_tavily",
-          "status": "live",
-          "variant": "free",
-          "way": "api"
-        }
-      ],
-      "output_kind": "text",
-      "register": "tool",
-      "version": "1"
-    },
-    {
-      "aliases": [],
-      "attrs": {},
-      "benchmarks": [],
-      "derived_from": null,
-      "docs": [
-        {
-          "field": "",
-          "kind": "description",
-          "source": "https://docs.tavily.com/documentation/api-reference/endpoint/search",
-          "taken_at": "2026-08-25",
-          "text": "Tavily Search is a search engine built for LLM agents: the /search endpoint takes a query and returns relevance-ranked web results with title, URL and content snippets, plus an optional LLM-generated answer, with filtering by domain, country, language and date."
-        },
-        {
-          "field": "input_kind",
-          "kind": "fact",
-          "source": "https://docs.tavily.com/documentation/api-reference/endpoint/search",
-          "taken_at": "2026-08-25",
-          "text": "text"
-        },
-        {
-          "field": "output_kind",
-          "kind": "fact",
-          "source": "https://docs.tavily.com/documentation/api-reference/endpoint/search",
-          "taken_at": "2026-08-25",
-          "text": "text"
-        }
-      ],
-      "family": "tavily-search",
-      "id": "ent_tavily-search",
-      "input_kind": "text",
-      "maker": "prov_tavily",
-      "name": "Tavily Search",
-      "offerings": [
-        {
-          "components": [
-            {
-              "basis": "declared",
-              "dimension": "call",
-              "micros_per_unit": 8000,
-              "source": "https://www.tavily.com/pricing",
-              "taken_at": "2026-08-25"
-            }
-          ],
-          "metrics": [],
-          "provider": "Tavily",
-          "provider_id": "prov_tavily",
-          "status": "stale",
-          "variant": "",
-          "way": "api"
-        },
-        {
-          "components": [
-            {
-              "basis": "declared",
-              "dimension": "call",
-              "micros_per_unit": 16000,
-              "source": "https://www.tavily.com/pricing",
-              "taken_at": "2026-08-25"
-            }
-          ],
-          "metrics": [],
-          "provider": "Tavily",
-          "provider_id": "prov_tavily",
-          "status": "stale",
-          "variant": "advanced",
           "way": "api"
         },
         {
@@ -380751,6 +380949,13 @@
       "url": "https://usealmanac.com"
     },
     {
+      "docs": [],
+      "id": "prov_alpha-vantage",
+      "kind": "vendor",
+      "name": "Alpha Vantage",
+      "url": "https://www.alphavantage.co"
+    },
+    {
       "docs": [
         {
           "field": "",
@@ -384895,6 +385100,13 @@
       "kind": "vendor",
       "name": "CombineHealth",
       "url": "https://www.combinehealth.ai/"
+    },
+    {
+      "docs": [],
+      "id": "prov_common-crawl",
+      "kind": "vendor",
+      "name": "Common Crawl",
+      "url": "https://commoncrawl.org"
     },
     {
       "docs": [
@@ -393498,6 +393710,13 @@
       "kind": "vendor",
       "name": "Mashgin",
       "url": "http://mashgin.com"
+    },
+    {
+      "docs": [],
+      "id": "prov_massive",
+      "kind": "vendor",
+      "name": "Massive",
+      "url": "https://massive.com"
     },
     {
       "docs": [
