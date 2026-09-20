@@ -1,0 +1,85 @@
+# Publish the catalogue here, every day, from the catalogue's own machine-
+# readable copy.
+#
+# It runs on GitHub rather than on the server that builds the catalogue, and
+# that is the point: the server holds no credential for this repository, and
+# now it needs none. A workflow writes with the token GitHub hands it, so
+# there is no deploy key to install, no secret to rotate, and nothing to
+# remember. It also keeps publishing when the server is unreachable — it reads
+# what the server already serves to everybody.
+#
+# It publishes only after a green night. A dataset the catalogue's own checks
+# called false must not reach the mirror, and coverage.json states the verdict
+# of every check that ran.
+
+name: Publish the daily snapshot
+
+on:
+  schedule:
+    # The catalogue collects at 04:17 UTC and takes the best part of an hour.
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Refuse a night that was not green
+        run: |
+          curl -sS --fail --max-time 120 -o coverage.json https://pass.io/index/coverage.json
+          blocking=$(jq '[.. | objects
+                          | select(has("blocking") and has("findings"))
+                          | select(.blocking == true and .findings > 0)] | length' coverage.json)
+          ran=$(jq -r '[.. | objects | select(has("ran_at")) | .ran_at] | max // "never"' coverage.json)
+          echo "checks last ran $ran; blocking findings: $blocking"
+          if [ "$blocking" != "0" ]; then
+            echo "the catalogue is asserting something its own checks call false; not publishing"
+            exit 1
+          fi
+
+      - name: Read the catalogue
+        run: |
+          curl -sS --fail --max-time 600 -o raw.json https://pass.io/index/all.json
+          # It has to answer as a catalogue. An empty or truncated body taken
+          # for the truth is worse than yesterday's snapshot.
+          jq -e 'has("entities") and has("providers") and (.entities | length > 1000)' raw.json > /dev/null
+          echo "things=$(jq '.entities|length' raw.json)" >> "$GITHUB_ENV"
+          echo "companies=$(jq '.providers|length' raw.json)" >> "$GITHUB_ENV"
+
+      - name: Print it the way a reader reads a diff
+        run: |
+          mkdir -p data
+          # Expanded, with sorted keys, on purpose: the daily diff is the
+          # product — a few kilobytes of what the market did last night —
+          # and a compact document would make it one changed line a megabyte
+          # wide.
+          jq -S . raw.json > data/all.json
+          jq -c '(.entities[] | {kind:"entity"} + .), (.providers[] | {kind:"provider"} + .)' \
+             raw.json > data/all.ndjson
+          want=$(( things + companies ))
+          got=$(wc -l < data/all.ndjson)
+          echo "ndjson: $got lines, expected $want"
+          test "$want" = "$got" && test "$got" -gt 0
+
+      - name: Commit if the market moved
+        run: |
+          rm -f raw.json coverage.json
+          if git diff --quiet -- data; then
+            echo "nothing moved today"
+            exit 0
+          fi
+          git config user.name "Pass Index"
+          git config user.email "index@pass.io"
+          git add data/all.json data/all.ndjson
+          git commit -q -m "Snapshot $(date -u +%F): ${things} things, ${companies} companies"
+          git push -q
+          echo "published ${things} things, ${companies} companies"
